@@ -9,5 +9,4 @@ public class TaskController
     {
         _logger = logger;
     }
-    
 }

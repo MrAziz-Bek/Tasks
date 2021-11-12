@@ -6,3 +6,4 @@ global using Microsoft.OpenApi.Models;
 global using Microsoft.AspNetCore.Mvc;
 global using Tasks.Entity;
 global using tasks.services;
+global using System.Text.Json.Serialization;
