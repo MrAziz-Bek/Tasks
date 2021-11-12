@@ -3,29 +3,29 @@ public class Task
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
     public Guid Id { get; set; }
-    
+
     [MaxLength(255)]
     [Required]
     public string Title { get; set; }
-    
+
     [MaxLength(1024)]
     public string Description { get; set; }
-    
+
     [MaxLength(1024)]
     public string Tags { get; set; }
-    
+
     public DateTimeOffset OnADay { get; set; }
-    
+
     public DateTimeOffset AtATime { get; set; }
-    
+
     public ETaskStatus? Status { get; set; }
-    
+
     public ETaskRepeat? Repeat { get; set; }
-    
+
     public ETaskPriority? Priority { get; set; }
-    
+
     public string Location { get; set; }
-    
+
     public string Url { get; set; }
 
     [Obsolete("Used only for Entity binding")]

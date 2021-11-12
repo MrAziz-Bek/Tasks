@@ -1,4 +1,4 @@
-namespace tasks.models;
+namespace Tasks.Models;
 public class NewTask
 {
     [MaxLength(255)]
@@ -14,11 +14,16 @@ public class NewTask
 
     public DateTimeOffset AtATime { get; set; }
 
-    [JsonConverter]
+
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public Tasks.Models.ETaskStatus Status { get; set; }
 
+
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public Tasks.Models.ETaskRepeat Repeat { get; set; }
 
+
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public Tasks.Models.ETaskPriority Priority { get; set; }
 
     public TaskLocation Location { get; set; }

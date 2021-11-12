@@ -1,4 +1,4 @@
-namespace tasks.services;
+namespace Tasks.Services;
 public interface IStorageService
 {
     Task<(bool IsSuccess, Exception exception)> InsertTaskAsync(Tasks.Entity.Task task);
@@ -12,9 +12,9 @@ public interface IStorageService
         string? title = default(string),
         string? description = default(string),
         string? tags = default(string),
-        ETaskStatus? status = null,
-        ETaskRepeat? repeat = null,
-        ETaskPriority? priority = null,
+        Tasks.Entity.ETaskStatus? status = null,
+        Tasks.Entity.ETaskRepeat? repeat = null,
+        Tasks.Entity.ETaskPriority? priority = null,
         DateTimeOffset onADay = default(DateTimeOffset),
         DateTimeOffset atATime = default(DateTimeOffset),
         string? location = default(string),

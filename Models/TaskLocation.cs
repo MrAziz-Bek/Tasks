@@ -1,4 +1,4 @@
-namespace tasks.models;
+namespace Tasks.Models;
 public class TaskLocation
 {
     public double latitude { get; set; }

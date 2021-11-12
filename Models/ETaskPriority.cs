@@ -1,7 +1,8 @@
-namespace Tasks.Models
+namespace Tasks.Models;
+public enum ETaskPriority
 {
-    public class ETaskPriority
-    {
-        
-    }
+    None,
+    High,
+    Mid,
+    Low
 }
