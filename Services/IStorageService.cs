@@ -5,7 +5,7 @@ public interface IStorageService
 
     Task<(bool IsSuccess, Exception exception)> UpdateTaskAsync(Tasks.Entity.Task task);
 
-    Task<(bool IsSuccess, Exception exception)> RemoveTaskAsync(Tasks.Entity.Task task);
+    Task<(bool IsSuccess, Exception exception)> RemoveTaskAsync(Guid id);
 
     Task<List<Tasks.Entity.Task>> GetTaskAsync(
         Guid id = default(Guid),

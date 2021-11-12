@@ -9,3 +9,4 @@ global using Tasks.Models;
 global using System.Net.Mime;
 global using Tasks.Mapper;
 global using Tasks.Services;
+global using System.Net;

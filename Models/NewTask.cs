@@ -3,12 +3,12 @@ public class NewTask
 {
     [MaxLength(255)]
     [Required]
-    public string Title { get; set; }
+    public string? Title { get; set; }
 
     [MaxLength(1024)]
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
-    public List<string> Tags { get; set; }
+    public List<string>? Tags { get; set; }
 
     public DateTimeOffset OnADay { get; set; }
 
@@ -26,7 +26,7 @@ public class NewTask
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public Tasks.Models.ETaskPriority Priority { get; set; }
 
-    public TaskLocation Location { get; set; }
+    public TaskLocation? Location { get; set; }
 
-    public string Url { get; set; }
+    public string? Url { get; set; }
 }

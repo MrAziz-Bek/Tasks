@@ -12,6 +12,7 @@ namespace Tasks
         {
             services.AddDbContext<TaskDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SqliteConnectionString")));
             services.AddControllers();
+            services.AddTransient<IStorageService, DbStorageService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tasks", Version = "v1" });

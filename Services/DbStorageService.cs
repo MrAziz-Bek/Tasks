@@ -9,11 +9,11 @@ public class DbStorageService : IStorageService
         _logger = logger;
         _context = context;
     }
-    public async Task<(bool IsSuccess, Exception exception)> InsertTaskAsync(Entity.Task task)
+    public async Task<(bool IsSuccess, Exception exception)> InsertTaskAsync(Tasks.Entity.Task task)
     {
         try
         {
-            await _context.Tasks.AddAsync(task);
+            _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
 
             _logger.LogInformation($"Task inserted in DB: {task.Id}");
@@ -25,26 +25,26 @@ public class DbStorageService : IStorageService
             return (false, e);
         }
     }
-    public async Task<(bool IsSuccess, Exception exception)> RemoveTaskAsync(Entity.Task task)
+    public async Task<(bool IsSuccess, Exception exception)> RemoveTaskAsync(Guid Id)
     {
         try
         {
-            if (await _context.Tasks.AnyAsync(t => t.Id == task.Id))
+            if (await _context.Tasks.AnyAsync(t => t.Id == Id))
             {
-                _context?.Tasks?.Remove(task);
+                _context?.Tasks?.Remove(_context.Tasks.FirstOrDefault(t => t.Id == Id));
                 await _context.SaveChangesAsync();
 
-                _logger.LogInformation($"Task removed from DB: {task.Id}");
+                _logger.LogInformation($"Task removed from DB: {Id}");
                 return (true, null);
             }
             else
             {
-                return (false, new Exception($"Task with given ID: {task.Id} doesn't exist!"));
+                return (false, new Exception($"Task with given ID: {Id} doesn't exist!"));
             }
         }
         catch (Exception e)
         {
-            _logger.LogInformation($"Removing task from DB failed: {task.Id}");
+            _logger.LogInformation($"Removing task from DB failed: {Id}");
             return (false, e);
         }
     }
