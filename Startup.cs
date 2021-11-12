@@ -1,10 +1,9 @@
-// IConfiguration Configuration { get; set; }
-namespace tasks
+namespace Tasks
 {
     public class Startup
     {
         public IConfiguration Configuration { get; set; }
-        
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -13,9 +12,10 @@ namespace tasks
         {
             services.AddDbContext<TaskDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SqliteConnectionString")));
             services.AddControllers();
+            services.AddTransient<IStorageService, DbStorageService>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tasks", Version = "v1" } );
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tasks", Version = "v1" });
             });
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
