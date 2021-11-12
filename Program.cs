@@ -1,9 +1,6 @@
-// IConfiguration Configuration { get; set; }
-
 // var builder = WebApplication.CreateBuilder(args);
 
 // // Add services to the container.
-// builder.Services.AddDbContext<TaskDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SqliteConnection")));
 // builder.Services.AddControllers();
 // // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 // builder.Services.AddEndpointsApiExplorer();
@@ -30,7 +27,7 @@
 namespace tasks;
 class Program
 {
-    static async Task Main(string[] args)
+    static async System.Threading.Tasks.Task Main(string[] args)
     {
         await CreateHostBuilder(args)
             .Build()
